@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-// PathString Sample
+﻿// PathString Sample
 
 // Get user's home directory
 
@@ -10,96 +8,129 @@ string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
 // Create a PathString from a string
 
-PathString path = new PathString(home);
+PathString path = home; // Implicit cast
 // Or
-PathString orPath = home;
+PathString path2 = (PathString)home; // Explicit cast
+// Or
+PathString path3 = new PathString(home);
+// Or
+PathString path4 = home.ToPathString();
 
-// Get the path as a string
+// Get the full path
 
-string pathString = path.ToString();
+string fullPath = path.FullPath;
 
-// Get PathString's Parent
+// Get the file or directory name
 
-DirectoryPathString parent = path.ParentDirectory;
+string name = path.Name;
 
-// PathString Operations
+// Get the parent directory
 
-// Combine two paths
+PathString parent = path.ParentDirectory;
+// Or
+DirectoryPathString parent2 = path.ParentDirectory;
+// Or
+PathString parent3 = --path;
+// Or
+var directoryPathString = path.ToDirectoryPathString();
+DirectoryPathString parent4 = --directoryPathString;
 
-PathString combinedPath = path + "Documents";
+// Get the root directory
 
-// Get the path's extension
+PathString root = path.RootDirectory;
 
-string extension = path.ToFilePathString().Extension;
+// Get the existence of the path
 
-// Get the path's filename
+bool exists = path.Exists;
 
-string filename = path.ToFilePathString().FileName;
+// Create if not exists
 
-// Get the path's filename without extension
+path.CreateIfNotExists();
 
-string filenameWithoutExtension = path.ToFilePathString().FileNameWithoutExtension;
+// Delete if exists
 
-// Get the path's directory name
+path.DeleteIfExists();
 
-string directoryName = path.ParentDirectory.Name;
+// Get the relative path
+
+PathString relativePath = path.GetRelativePath(home);
+
+// Combine paths
+
+PathString combinedPath = path + "test.txt";
+
+// If exists
+
+if (path)
+{
+    // Do something
+}
+
+// If not exists
+
+if (!path)
+{
+    // Do something
+}
+
+// Is a child of a path
+
+var isChild = path > parent;
+
+// Is a parent of a path
+
+var isParent = path < parent;
 
 // DirectoryPathString Sample
 
 // Create a DirectoryPathString from a string
 
-DirectoryPathString directoryPath = new DirectoryPathString(home);
+DirectoryPathString directoryPath = home; // Implicit cast
+// Or
+DirectoryPathString directoryPath2 = (DirectoryPathString)home; // Explicit cast
+// Or
+DirectoryPathString directoryPath3 = new DirectoryPathString(home);
+// Or
+DirectoryPathString directoryPath4 = home.ToDirectoryPathString();
+// Or
+DirectoryPathString directoryPath5 = path.ToDirectoryPathString();
 
-// Get the path as a string
+// From director info
 
-string directoryPathString = directoryPath;
+DirectoryInfo directoryInfo = new DirectoryInfo(home);
+DirectoryPathString directoryPath6 = directoryInfo; // Implicit cast
 
-// Get DirectoryPathString's Parent
-
-DirectoryPathString parentDirectory = directoryPath.ParentDirectory;
-
-// DirectoryPathString Operations
-
-// Combine two paths
-
-PathString combinedDirectoryPath = directoryPath + "Documents";
-
-// Get the path's directory name
-
-string directoryName2 = directoryPath.Name;
-
-// FilePathString Sample
+// FilePathsString Sample
 
 // Create a FilePathString from a string
 
-FilePathString filePath = new FilePathString(home + "\\Documents\\test.txt");
+FilePathString filePath = home; // Implicit cast
+// Or
+FilePathString filePath2 = (FilePathString)home; // Explicit cast
+// Or
+FilePathString filePath3 = new FilePathString(home);
+// Or
+FilePathString filePath4 = home.ToFilePathString();
+// Or
+FilePathString filePath5 = path.ToFilePathString();
 
-// Get the path as a string
+// From file info
 
-string filePathString = filePath;
+FileInfo fileInfo = new FileInfo(home);
+FilePathString filePath6 = fileInfo; // Implicit cast
 
-// Get FilePathString's Parent
+// Get the file extension
 
-DirectoryPathString parentDirectory2 = filePath.ParentDirectory;
+string extension = filePath.Extension;
 
-// FilePathString Operations
+// Get the file name without extension
 
-// Combine two paths
+string fileNameWithoutExtension = filePath.FileNameWithoutExtension;
 
-PathString combinedFilePath = filePath + "test2.txt";
+// Get the file name
 
-// Get the path's extension
+string fileName = filePath.FileName;
 
-string extension2 = filePath.Extension;
+// Combine paths
 
-// Get the path's filename
-
-string filename2 = filePath.FileName;
-
-// Get the path's filename without extension
-
-string filenameWithoutExtension2 = filePath.FileNameWithoutExtension;
-
-// Get the path's directory name
-
-string directoryName3 = filePath.ParentDirectory.Name;
+FilePathString fileCombinedPath = home + "test.txt";
