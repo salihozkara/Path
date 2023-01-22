@@ -49,6 +49,13 @@ public class PathStringTest
     }
     
     [Test]
+    public void Root(){
+        var path = new PathString(_userPath);
+        var root = path.RootDirectory;
+        Assert.That(root.FullPath, Is.EqualTo(Path.GetPathRoot(_userPath)));
+    }
+    
+    [Test]
     public void MinusMinus()
     {
         var path = new PathString(Path.Combine(_userPath, "test"));

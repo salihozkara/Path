@@ -40,6 +40,7 @@ public class PathString
     public virtual DirectoryPathString ParentDirectory => Directory.GetParent(Value)?.FullName ?? string.Empty;
     private bool IsValid => ValidatePath();
     public PathType Type => _pathType ??= GetPathType();
+    public DirectoryPathString RootDirectory => Path.GetPathRoot(Value) ?? new InvalidPathString();
 
 
     // Methods
