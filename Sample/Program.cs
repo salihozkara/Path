@@ -45,11 +45,11 @@ bool exists = path.Exists;
 
 // Create if not exists
 
-path.CreateIfNotExists();
+// path.CreateIfNotExists(); // Now it exists because path is User's home directory
 
 // Delete if exists
 
-path.DeleteIfExists();
+// path.DeleteIfExists(); // Now it doesn't because path is User's home directory
 
 // Get the relative path
 
