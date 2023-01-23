@@ -1,5 +1,9 @@
 ## Dotnet AdvancedPath Library By [Salih Özkara](https://github.com/salihozkara)
 
+[![NuGet](https://img.shields.io/nuget/v/AdvancedPath.svg)](https://www.nuget.org/packages/AdvancedPath/)
+[![NuGet](https://img.shields.io/nuget/dt/AdvancedPath.svg)](https://www.nuget.org/packages/AdvancedPath/)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/salihozkara/AdvancedPath/master/LICENSE)
+
 
 ### What is AdvancedPath?
 
