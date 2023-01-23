@@ -9,7 +9,7 @@ public class PathString
     
     protected FileSystemInfo? Info;
 
-    protected virtual FileSystemInfo FileSystemInfo => Info ??= GetFileSystemInfo();
+    public virtual FileSystemInfo FileSystemInfo => Info ??= GetFileSystemInfo();
 
     private FileSystemInfo GetFileSystemInfo()
     {

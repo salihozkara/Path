@@ -6,7 +6,7 @@ public sealed class FilePathString : PathString
     {
     }
 
-    protected override FileInfo FileSystemInfo
+    public override FileInfo FileSystemInfo
     {
         get
         {
