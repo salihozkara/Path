@@ -10,6 +10,7 @@
         <PackageTags>path, path-manage</PackageTags>
         <PackageLicenseUrl>https://raw.githubusercontent.com/salihozkara/Path/main/LICENSE</PackageLicenseUrl>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
