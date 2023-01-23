@@ -4,6 +4,19 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>Salih</Authors>
+        <Description>AdvancedPath is a library that provides a set of methods to work with paths. It is a .NET 7.0 library.</Description>
+        <RepositoryUrl>https://github.com/salihozkara/Path</RepositoryUrl>
+        <PackageTags>path, path-manage</PackageTags>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/salihozkara/Path/main/LICENSE</PackageLicenseUrl>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\Readme.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>
