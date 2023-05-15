@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace AdvancedPath;
 
 public class PathString
@@ -124,11 +126,11 @@ public class PathString
     
     private bool Equals(PathString other)
     {
-        var tempFullPath = FullPath;
-        tempFullPath = tempFullPath.EndsWith(Path.DirectorySeparatorChar) ? tempFullPath : tempFullPath + Path.DirectorySeparatorChar;
-        var otherFullPath = other.FullPath;
-        otherFullPath = otherFullPath.EndsWith(Path.DirectorySeparatorChar) ? otherFullPath : otherFullPath + Path.DirectorySeparatorChar;
-        return tempFullPath.Equals(otherFullPath, StringComparison.OrdinalIgnoreCase);
+        var tempValue = Value;
+        tempValue = tempValue.EndsWith(Path.DirectorySeparatorChar) ? tempValue : tempValue + Path.DirectorySeparatorChar;
+        var otherValue = other.Value;
+        otherValue = otherValue.EndsWith(Path.DirectorySeparatorChar) ? otherValue : otherValue + Path.DirectorySeparatorChar;
+        return otherValue.Equals(otherValue, StringComparison.OrdinalIgnoreCase);
     }
 
 
@@ -185,8 +187,6 @@ public class PathString
     {
         return pathString ? false : true;
     }
-
-    
     
     public static bool operator true(PathString pathString)
     {
@@ -197,9 +197,6 @@ public class PathString
     {
         return pathString ? false : true;
     }
-
-
-    
     
     public static PathString operator +(PathString pathString1, PathString pathString2)
     {
@@ -233,15 +230,7 @@ public class PathString
     
     public static bool operator <(PathString pathString1, PathString pathString2)
     {
-        var tempPathString = pathString2;
-        while (tempPathString.IsValid)
-        {
-            tempPathString--;
-            if(tempPathString == pathString1)
-                return true; 
-        }
-        
-        return false;
+        return pathString2.Value.StartsWith(pathString1.Value, StringComparison.OrdinalIgnoreCase) && pathString1 != pathString2;
     }
     
     public static bool operator <=(PathString pathString1, PathString pathString2)
